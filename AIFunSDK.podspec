@@ -32,7 +32,7 @@ Pod::Spec.new do |s|
   
 #  s.source_files = 'AIFunSDK/Classes/**/*'
   
-  s.vendored_frameworks = 'AIFunSDK.framework'
+  s.vendored_frameworks = 'AIFunSDK/AIFunSDK.framework'
   s.resource  = "AIFunSDK/AIFunSDKResource.bundle"
   
   # s.public_header_files = 'Pod/Classes/**/*.h'

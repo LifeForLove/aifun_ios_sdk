@@ -7,40 +7,101 @@
 //
 
 #import "GSDKAppDelegate.h"
+#import <AIFunSDK/AIFunSDK.h>
+#import <AFNetworking.h>
+@interface GSDKAppDelegate ()
+
+// 网络连接失败需要重新注册
+@property (nonatomic,assign) BOOL needRegisterAppAgain;
+
+@end
 
 @implementation GSDKAppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     // Override point for customization after application launch.
+    [self addObserver];
+    [self initConfig];
+    [self registerSDK];
+
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+- (void)addObserver {
+    // 注册结果
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(sdkRegisterResult:) name:AIFunSDKInitDidFinishedNotification object:nil];
+    
+    // 登录结果
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(sdkLoginResult:) name:AIFunSDKLoginResultNotification object:nil];
+    
+    // 退出登录结果
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(sdkLogoutResult:) name:AIFunSDKLogOutResultNotification object:nil];
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+- (void)registerSDK {
+
+    AIFunSDK * sdk = [AIFunSDK defaultSDK];
+    [sdk registerApp:@"2020181818" sdkKey:@"KBKCcehoHurLkkFA2rdTwhUwqezdUDexUccrW7BvXfs=" channelId:@"1"];
+    //    [sdk registerApp:@"20210130063322148466" sdkKey:@"VA51/p5AU/+wWQ8i3ndNLPl/hnrQcnzHvKrNKdX3McI=" channelId:@"1"];
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+- (void)sdkRegisterResult:(NSNotification *)noti {
+    NSDictionary *userInfo = noti.userInfo;
+    int errorCode = [userInfo[kAIFunSDKKeyError] intValue];
+    if (errorCode == AIFunSDKRequestError_None) {
+        NSLog(@"注册成功");
+    } else {
+        if (![AFNetworkReachabilityManager sharedManager].isReachable) {
+            NSLog(@"网络连接失败");
+            self.needRegisterAppAgain = YES;
+        }
+    }
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+- (void)sdkLoginResult:(NSNotification *)noti {
+    NSDictionary *userInfo = noti.userInfo;
+    int errorCode = [userInfo[kAIFunSDKKeyError] intValue];
+    if (errorCode == AIFunSDKRequestError_None) {
+        NSLog(@"登录成功");
+    }
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+- (void)sdkLogoutResult:(NSNotification *)noti {
+    NSDictionary *userInfo = noti.userInfo;
+    int errorCode = [userInfo[kAIFunSDKKeyError] intValue];
+    if (errorCode == AIFunSDKRequestError_None) {
+        NSLog(@"退出登录成功");
+    }
 }
+
+- (void)initConfig {
+    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
+    [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        // 当网络状态改变时调用
+        switch (status) {
+                case AFNetworkReachabilityStatusUnknown://未知网络
+                NSLog(@"未知网络");
+                break;
+                case AFNetworkReachabilityStatusNotReachable://没有网络
+                break;
+                case AFNetworkReachabilityStatusReachableViaWWAN://手机自带网络
+                [self registerAppAgain];
+                break;
+                case AFNetworkReachabilityStatusReachableViaWiFi://WIFI
+                [self registerAppAgain];
+                break;
+        }
+    }];
+    //开始监控
+    [manager startMonitoring];
+}
+
+- (void)registerAppAgain {
+    if (self.needRegisterAppAgain) {
+        [self registerSDK];
+    }
+}
+
 
 @end
