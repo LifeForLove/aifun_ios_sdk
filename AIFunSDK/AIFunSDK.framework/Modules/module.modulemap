@@ -1,0 +1,6 @@
+framework module AIFunSDK {
+  umbrella header "AIFunSDK.h"
+
+  export *
+  module * { export * }
+}

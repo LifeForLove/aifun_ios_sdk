@@ -1,0 +1,6 @@
+framework module Pods_AIFunSDK_Tests {
+  umbrella header "Pods-AIFunSDK_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
