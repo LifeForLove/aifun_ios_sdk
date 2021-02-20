@@ -7,9 +7,14 @@
 
 #import <Foundation/Foundation.h>
 #import "AIFunSDKDefines.h"
+#import "AIFunSDKPayInfo.h"
+#import "AIFunSDKGameRoleInfo.h"
+#import <UIKit/UIKit.h>
 extern NSString * _Nullable const AIFunSDKInitDidFinishedNotification;      //初始化成功
 extern NSString * _Nullable const AIFunSDKLogOutResultNotification;        //退出登录通知
 extern NSString * _Nullable const AIFunSDKLoginResultNotification;         //登录结果通知
+extern NSString * _Nullable const AIFunSDKUserTimeOutNotification;         //用户超时通知
+extern NSString * _Nullable const AIFunSDKApplePayNotification;            //苹果支付结果通知
 
 extern NSString* _Nullable const kAIFunSDKKeyError;    /*Notification userinfo error Key */
 NS_ASSUME_NONNULL_BEGIN
@@ -84,6 +89,26 @@ NS_ASSUME_NONNULL_BEGIN
  @return 微信已安装返回YES，未安装返回NO。
  */
 + (BOOL)isAIFunInstalled;
+
+/**
+ @brief 商品购买
+ @param orderInfo 订单信息
+ @param roleInfo 角色信息
+ */
+- (void)payOrderInfo:(AIFunSDKPayInfo *)orderInfo roleInfo:(AIFunSDKGameRoleInfo *)roleInfo;
+
+//***********************应用生命周期的回调*******************//
+//在应用对应的生命周期回调中调用
+/**
+ @brief  渠道处理应用跳转
+ @note 必接
+ */
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options;
+- (void)applicationWillResignActive:(UIApplication *)application;
+- (void)applicationDidEnterBackground:(UIApplication *)application;
+- (void)applicationWillEnterForeground:(UIApplication *)application;
+- (void)applicationDidBecomeActive:(UIApplication *)application;
+- (void)applicationWillTerminate:(UIApplication *)application;
 
 @end
 
