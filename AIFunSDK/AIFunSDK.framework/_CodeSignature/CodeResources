@@ -6,11 +6,11 @@
 	<dict>
 		<key>Headers/AIFunSDK.h</key>
 		<data>
-		RbKFpAWT32FBnMgV6gZTTPY70h8=
+		34kfMC7Vk2oLRaq200cqi6ampSU=
 		</data>
 		<key>Headers/AIFunSDKDefines.h</key>
 		<data>
-		h7rKvxOnGcu2qrlPfPcFQYnr+uI=
+		NmUS/EmB4e84XnFAaaxgTPzlzaY=
 		</data>
 		<key>Headers/AIFunSDKGameRoleInfo.h</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		9UEQ415A/ol55xoTzU5MhP//eMA=
+		AcmV2OYPIE56/dqZ4O1uVEtJdFQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -35,22 +35,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			RbKFpAWT32FBnMgV6gZTTPY70h8=
+			34kfMC7Vk2oLRaq200cqi6ampSU=
 			</data>
 			<key>hash2</key>
 			<data>
-			AnX/5IIgw6Ms4XYJH3mYKh/x3txN2XDvkhze84fhF5M=
+			IfWZ9C/3KlISmalqnHunbTeCKre5+GDOGJf5i912FgM=
 			</data>
 		</dict>
 		<key>Headers/AIFunSDKDefines.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			h7rKvxOnGcu2qrlPfPcFQYnr+uI=
+			NmUS/EmB4e84XnFAaaxgTPzlzaY=
 			</data>
 			<key>hash2</key>
 			<data>
-			86V0uf75H0vp92ku1B2BNN03bKlZ4/AfGQumIJ/V4u0=
+			boKdhbAdqlGLbE2h/4oxv9A8eDbGrXf5gT27gDSEB+Q=
 			</data>
 		</dict>
 		<key>Headers/AIFunSDKGameRoleInfo.h</key>

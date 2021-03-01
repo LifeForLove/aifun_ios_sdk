@@ -15,6 +15,8 @@ extern NSString * _Nullable const AIFunSDKLogOutResultNotification;        //退
 extern NSString * _Nullable const AIFunSDKLoginResultNotification;         //登录结果通知
 extern NSString * _Nullable const AIFunSDKUserTimeOutNotification;         //用户超时通知
 extern NSString * _Nullable const AIFunSDKApplePayNotification;            //苹果支付结果通知
+extern NSString * _Nullable const AIFunSDKNotiRealAuthNotification;        //用户实名认证
+
 
 extern NSString* _Nullable const kAIFunSDKKeyError;    /*Notification userinfo error Key */
 NS_ASSUME_NONNULL_BEGIN
@@ -63,13 +65,13 @@ NS_ASSUME_NONNULL_BEGIN
  @brief 登录接口
  @note  登录结果监听AIFunSDKLoginResultNotification
  */
-- (void)login;
+- (int)login;
 
 /**
  @brief 登出接口 代码调用注销
  @note  成功调用该接口后，SDK会发出AIFunSDKLogOutResultNotification通知
  */
-- (void)logout;
+- (int)logout;
 
 /**
  @brief 隐藏悬浮窗

@@ -20,6 +20,7 @@ typedef enum {
     AIFunSDKError_Had_Login                 = -302,  /* 已有登录用户 */
     AIFunSDKError_Logout_Failed             = -303,  /* 用户登出失败 */
     AIFunSDKError_Login_Failed              = -304,  /* 用户登录失败 */
+    AIFunSDKError_AuthName_Failed           = -305,  /* 用户实名认证失败 */
     
     AIFunSDKError_Paying                    = 70101, /* 购买中 */
     AIFunSDKError_Jailbroken                = 70102, /* 越狱设备 */
@@ -31,7 +32,7 @@ typedef enum {
     AIFunSDKError_Net                       = 70108, /* 网络错误 */
     AIFunSDKError_NotRegistered             = 70109, /* 未注册IAP */
     AIFunSDKError_HasUnfinishedTransaction  = 70110, /* 有未验证完的订单 */
-    AIFunSDKError_NotLogin                  = 70111, /* 未登录 */
+    AIFunSDKError_Products_Null             = 70111, /* 未查询到该商品 */
 
 } AIFunDKError_Code;
 
