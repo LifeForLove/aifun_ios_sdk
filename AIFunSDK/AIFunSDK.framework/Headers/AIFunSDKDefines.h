@@ -33,7 +33,19 @@ typedef enum {
     AIFunSDKError_NotRegistered             = 70109, /* 未注册IAP */
     AIFunSDKError_HasUnfinishedTransaction  = 70110, /* 有未验证完的订单 */
     AIFunSDKError_Products_Null             = 70111, /* 未查询到该商品 */
-
+    AIFunSDKError_Pay_Error                 = 70112, /* 支付失败 */
+    
+    AIFunSDKError_PayTypeNull_Error         = 70113, /* 未找到后台设置的支付方式 */
+    AIFunSDKError_AppNotExits_Error         = 70114, /* APP不存在 */
+    AIFunSDKError_ProductId_Error           = 70115, /* 不存在此计费点 */
+    AIFunSDKError_PayPrice_Error            = 70116, /* 价格错误 */
+    AIFunSDKError_MinAge_Error              = 70117, /* 未达到年龄，不能付费 */
+    AIFunSDKError_TrueName_Error            = 70118, /* 未完成实名认证，不能付费 */
+    AIFunSDKError_MaxAmount_Error           = 70119, /* 未成年人，付费金额大于规定金额 */
+    AIFunSDKError_MaxMonthAmount_Error      = 70120, /* 未成年人，本月付费已达上限 */
+    AIFunSDKError_Not_Install_Alipay_Error  = 70121, /* 未安装支付宝 */ 
+    
+    
 } AIFunDKError_Code;
 
 typedef enum {

@@ -16,9 +16,10 @@ extern NSString * _Nullable const AIFunSDKLoginResultNotification;         //登
 extern NSString * _Nullable const AIFunSDKUserTimeOutNotification;         //用户超时通知
 extern NSString * _Nullable const AIFunSDKApplePayNotification;            //苹果支付结果通知
 extern NSString * _Nullable const AIFunSDKNotiRealAuthNotification;        //用户实名认证
-
+extern NSString * _Nullable const AIFunSDKAlipayNotification;              //支付宝支付结果通知
 
 extern NSString* _Nullable const kAIFunSDKKeyError;    /*Notification userinfo error Key */
+extern NSString* _Nullable const kAIFunSDKKeyErrorMessage;    /*Notification userinfo error Key Message */
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AIFunSDK : NSObject
@@ -45,9 +46,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign,readonly) BOOL isLogin;
 
 /**
+ 判断在线时长是否超时
+ */
+@property (nonatomic,assign,readonly) BOOL isTimeOut;
+
+/**
  登录成功会返回token
  */
 @property (nonatomic,copy,readonly) NSString *token;
+
+/**
+ 打开debug log
+ */
+@property (nonatomic,assign) BOOL openDebugLog;
 
 /**
  @brief 注册第三方应用。
@@ -98,6 +109,16 @@ NS_ASSUME_NONNULL_BEGIN
  @param roleInfo 角色信息
  */
 - (void)payOrderInfo:(AIFunSDKPayInfo *)orderInfo roleInfo:(AIFunSDKGameRoleInfo *)roleInfo;
+
+/**
+ @brief 显示超时弹窗
+ */
+- (void)showTimeOutAlert;
+
+/**
+ @brief 开始用户超时检测
+ */
+- (void)beginUserTimeOutRecord;
 
 //***********************应用生命周期的回调*******************//
 //在应用对应的生命周期回调中调用
