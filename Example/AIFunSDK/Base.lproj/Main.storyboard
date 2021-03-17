@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="whP-gf-Uak">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="whP-gf-Uak">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,7 +19,53 @@
                     <view key="view" contentMode="scaleToFill" id="TpU-gO-2f1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M7P-Zu-5ph">
+                                <rect key="frame" x="46" y="100" width="283" height="44"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="OOn-Fv-luk"/>
+                                </constraints>
+                                <state key="normal" title="开始游戏"/>
+                                <connections>
+                                    <action selector="startGame:" destination="whP-gf-Uak" eventType="touchUpInside" id="ahI-0c-eee"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqe-6s-Wvz">
+                                <rect key="frame" x="46" y="248" width="283" height="44"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="hpE-8z-Yas"/>
+                                </constraints>
+                                <state key="normal" title="退出登录"/>
+                                <connections>
+                                    <action selector="loginOutAction:" destination="whP-gf-Uak" eventType="touchUpInside" id="eVl-l6-CpI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8O-Yn-sbX">
+                                <rect key="frame" x="46" y="174" width="283" height="44"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="LCi-Yg-UbU"/>
+                                </constraints>
+                                <state key="normal" title="支付"/>
+                                <connections>
+                                    <action selector="payAction:" destination="whP-gf-Uak" eventType="touchUpInside" id="wZM-KH-TGb"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="a8O-Yn-sbX" firstAttribute="top" secondItem="M7P-Zu-5ph" secondAttribute="bottom" constant="30" id="UFO-SG-giz"/>
+                            <constraint firstItem="lqe-6s-Wvz" firstAttribute="leading" secondItem="M7P-Zu-5ph" secondAttribute="leading" id="bUm-Bb-6Ns"/>
+                            <constraint firstItem="M7P-Zu-5ph" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" constant="30" id="fAN-5W-SUq"/>
+                            <constraint firstItem="a8O-Yn-sbX" firstAttribute="trailing" secondItem="M7P-Zu-5ph" secondAttribute="trailing" id="gW4-e0-0PA"/>
+                            <constraint firstItem="a8O-Yn-sbX" firstAttribute="leading" secondItem="M7P-Zu-5ph" secondAttribute="leading" id="hUK-zn-jm1"/>
+                            <constraint firstItem="lqe-6s-Wvz" firstAttribute="top" secondItem="a8O-Yn-sbX" secondAttribute="bottom" constant="30" id="jFt-rY-imr"/>
+                            <constraint firstItem="M7P-Zu-5ph" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="100" id="jIf-on-oap"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="M7P-Zu-5ph" secondAttribute="trailing" constant="30" id="ml1-fW-9VO"/>
+                            <constraint firstItem="lqe-6s-Wvz" firstAttribute="trailing" secondItem="M7P-Zu-5ph" secondAttribute="trailing" id="z1m-cP-SY3"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -28,4 +73,9 @@
             <point key="canvasLocation" x="305" y="433"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

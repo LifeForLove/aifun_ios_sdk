@@ -23,6 +23,7 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		AC48CD712602169B005AD029 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC48CD702602169B005AD029 /* StoreKit.framework */; };
 		C642F109EA662807A11D2CCF /* libPods-AIFunSDK_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C43D92BDFF01F8A4D689CB80 /* libPods-AIFunSDK_Tests.a */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80ECD9A414A5F01565C0BDE4 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AC48CD702602169B005AD029 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		AE16BEDD3E4EF2E2E31767DE /* Pods-AIFunSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIFunSDK_Tests.debug.xcconfig"; path = "Target Support Files/Pods-AIFunSDK_Tests/Pods-AIFunSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		BCB9D5097D686B9153613099 /* Pods-AIFunSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AIFunSDK_Example.debug.xcconfig"; path = "Target Support Files/Pods-AIFunSDK_Example/Pods-AIFunSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		C43D92BDFF01F8A4D689CB80 /* libPods-AIFunSDK_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AIFunSDK_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +78,7 @@
 			files = (
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
+				AC48CD712602169B005AD029 /* StoreKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
 				5F5C62481A6748062B34E396 /* libPods-AIFunSDK_Example.a in Frameworks */,
 			);
@@ -130,6 +133,7 @@
 		6003F58C195388D20070C39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AC48CD702602169B005AD029 /* StoreKit.framework */,
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,

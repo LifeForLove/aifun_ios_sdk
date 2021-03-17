@@ -14,7 +14,7 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
-  - AIFunSDK (0.1.0):
+  - AIFunSDK (0.1.4):
     - AFNetworking (~> 4.0.1)
     - Masonry (~> 1.1.0)
     - MJExtension (~> 3.2.4)
@@ -25,6 +25,7 @@ PODS:
     - SDWebImage (~> 5.10.4)
     - YYText (~> 1.0.7)
   - Masonry (1.1.0)
+  - MBProgressHUD (1.2.0)
   - MJExtension (3.2.4)
   - MJRefresh (3.5.0)
   - QCloudCore/WithoutMTA (5.8.3)
@@ -45,11 +46,13 @@ PODS:
 
 DEPENDENCIES:
   - AIFunSDK (from `../`)
+  - MBProgressHUD
 
 SPEC REPOS:
   trunk:
     - AFNetworking
     - Masonry
+    - MBProgressHUD
     - MJExtension
     - MJRefresh
     - QCloudCore
@@ -65,8 +68,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
-  AIFunSDK: eb5ca71c005f63dedd8607ba683924f2653fc97c
+  AIFunSDK: 6079385ae241fe6d65ef70b1d1b83d449ec74d36
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJExtension: 88e0900751b6cac8de1cf724ca9838a0b28d5acb
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   QCloudCore: c8542aca5b873aab0de8cc653beffd6d17c8023d
@@ -76,6 +80,6 @@ SPEC CHECKSUMS:
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 6bd5e1595310f44269d2b48754e8d13b20af6e58
+PODFILE CHECKSUM: d0ce904765cad8e86e6923e2c72ea607dc8cc165
 
 COCOAPODS: 1.10.1

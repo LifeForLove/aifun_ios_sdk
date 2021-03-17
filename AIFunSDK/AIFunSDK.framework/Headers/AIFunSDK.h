@@ -16,7 +16,6 @@ extern NSString * _Nullable const AIFunSDKLoginResultNotification;         //登
 extern NSString * _Nullable const AIFunSDKUserTimeOutNotification;         //用户超时通知
 extern NSString * _Nullable const AIFunSDKApplePayNotification;            //苹果支付结果通知
 extern NSString * _Nullable const AIFunSDKNotiRealAuthNotification;        //用户实名认证
-extern NSString * _Nullable const AIFunSDKAlipayNotification;              //支付宝支付结果通知
 
 extern NSString* _Nullable const kAIFunSDKKeyError;    /*Notification userinfo error Key */
 extern NSString* _Nullable const kAIFunSDKKeyErrorMessage;    /*Notification userinfo error Key Message */

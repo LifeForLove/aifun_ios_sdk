@@ -3,7 +3,7 @@ platform :ios, '9.0'
 
 target 'AIFunSDK_Example' do
   pod 'AIFunSDK', :path => '../'
-
+  pod 'MBProgressHUD'
   target 'AIFunSDK_Tests' do
     inherit! :search_paths
 

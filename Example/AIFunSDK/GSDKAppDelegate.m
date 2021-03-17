@@ -19,59 +19,32 @@
 @implementation GSDKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
     // Override point for customization after application launch.
-    [self addObserver];
-    [self initConfig];
-    [self registerSDK];
-
-    return YES;
-}
-
-- (void)addObserver {
     // 注册结果
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(sdkRegisterResult:) name:AIFunSDKInitDidFinishedNotification object:nil];
     
-    // 登录结果
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(sdkLoginResult:) name:AIFunSDKLoginResultNotification object:nil];
+    [self initConfig];
+    [self registerSDK];
     
-    // 退出登录结果
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(sdkLogoutResult:) name:AIFunSDKLogOutResultNotification object:nil];
-}
 
-- (void)registerSDK {
-
-    AIFunSDK * sdk = [AIFunSDK defaultSDK];
-    [sdk registerApp:@"2020181818" sdkKey:@"KBKCcehoHurLkkFA2rdTwhUwqezdUDexUccrW7BvXfs=" channelId:@"1"];
-    //    [sdk registerApp:@"20210130063322148466" sdkKey:@"VA51/p5AU/+wWQ8i3ndNLPl/hnrQcnzHvKrNKdX3McI=" channelId:@"1"];
+    return YES;
 }
 
 - (void)sdkRegisterResult:(NSNotification *)noti {
     NSDictionary *userInfo = noti.userInfo;
     int errorCode = [userInfo[kAIFunSDKKeyError] intValue];
-    if (errorCode == AIFunSDKRequestError_None) {
+    if (errorCode == AIFunSDKError_None) {
         NSLog(@"注册成功");
+        if ([AIFunSDK defaultSDK].isLogin == NO) {
+            [[AIFunSDK defaultSDK]login];
+        }
     } else {
         if (![AFNetworkReachabilityManager sharedManager].isReachable) {
             NSLog(@"网络连接失败");
             self.needRegisterAppAgain = YES;
+        } else {
+            NSLog(@"注册失败：code = %d",errorCode);
         }
-    }
-}
-
-- (void)sdkLoginResult:(NSNotification *)noti {
-    NSDictionary *userInfo = noti.userInfo;
-    int errorCode = [userInfo[kAIFunSDKKeyError] intValue];
-    if (errorCode == AIFunSDKRequestError_None) {
-        NSLog(@"登录成功");
-    }
-}
-
-- (void)sdkLogoutResult:(NSNotification *)noti {
-    NSDictionary *userInfo = noti.userInfo;
-    int errorCode = [userInfo[kAIFunSDKKeyError] intValue];
-    if (errorCode == AIFunSDKRequestError_None) {
-        NSLog(@"退出登录成功");
     }
 }
 
@@ -97,11 +70,43 @@
     [manager startMonitoring];
 }
 
+
+- (void)registerSDK {
+    AIFunSDK * sdk = [AIFunSDK defaultSDK];
+    [sdk registerApp:@"20210130063322148466" sdkKey:@"VA51/p5AU/+wWQ8i3ndNLPl/hnrQcnzHvKrNKdX3McI=" channelId:@"1"];
+    sdk.openDebugLog = YES;
+}
+
 - (void)registerAppAgain {
     if (self.needRegisterAppAgain) {
         [self registerSDK];
     }
 }
 
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    [[AIFunSDK defaultSDK]applicationWillEnterForeground:application];
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
+    [[AIFunSDK defaultSDK]application:app openURL:url options:options];
+    return YES;
+}
+
+- (void)applicationWillResignActive:(UIApplication *)application {
+    [[AIFunSDK defaultSDK]applicationWillResignActive:application];
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    [[AIFunSDK defaultSDK] applicationDidBecomeActive:application];
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    [[AIFunSDK defaultSDK]applicationDidEnterBackground:application];
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+    [[AIFunSDK defaultSDK] applicationWillTerminate:application];
+}
 
 @end
