@@ -9,6 +9,7 @@
 #import "AIFunSDKDefines.h"
 #import "AIFunSDKPayInfo.h"
 #import "AIFunSDKGameRoleInfo.h"
+#import "AIFunSDKDataCollect.h"
 #import <UIKit/UIKit.h>
 extern NSString * _Nullable const AIFunSDKInitDidFinishedNotification;      //初始化成功
 extern NSString * _Nullable const AIFunSDKLogOutResultNotification;        //退出登录通知
@@ -70,7 +71,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)registerApp:(NSString *)appId sdkKey:(NSString *)sdkKey channelId:(NSString *)channelId;
 
-
 /**
  @brief 登录接口
  @note  登录结果监听AIFunSDKLoginResultNotification
@@ -115,9 +115,28 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)showTimeOutAlert;
 
 /**
+ @brief 拉起实名认证页面
+ */
+- (void)showVerifyViewController;
+
+/**
  @brief 开始用户超时检测
  */
 - (void)beginUserTimeOutRecord;
+
+//***********************数据采集*******************//
+
+/// 首次进入
++ (BOOL)dataCollectFirstEnter;
+
+/// 首次进入停留时长
++ (BOOL)dataCollectFirstEnterWithStayTypeData:(AIFunSDKFirstData *)data;
+
+/// 引导页面数据统计
++ (BOOL)dataCollectWithGuideData:(AIFunSDKGuideData *)data;
+
+/// 关卡数据统计
++ (BOOL)dataCollectWithMissionData:(AIFunSDKMissionData *)data;
 
 //***********************应用生命周期的回调*******************//
 //在应用对应的生命周期回调中调用

@@ -42,10 +42,25 @@ typedef enum {
 } AIFunDKError_Code;
 
 typedef enum {
-    AIFunDKDataCollectType_FirstEnter,    /* 首次进入 */
-    AIFunDKDataCollectType_Guide,         /* 引导数据 */
-    AIFunDKDataCollectType_Mission,       /* 关卡数据 */
-} AIFunDKDataCollectType;
+    AIFunSDKStayTimeTypeOneMinute, //首次进入停留一分钟
+    AIFunSDKStayTimeTypeTwoMinute, //首次进入停留两分钟
+    AIFunSDKStayTimeTypeFiveMinutes, //首次进入停留五分钟
+    AIFunSDKStayTimeTypeTenMinutes, //首次进入停留十分钟
+} AIFunSDKFirstStayTimeType;//首次进入事件
+
+typedef enum {
+    AIFunSDKGuideTypeStart, //引导开始
+    AIFunSDKGuideTypeStep, //到达特定引导步骤 到达指定步骤 徐传入pageNo字段
+    AIFunSDKGuideTypeSkip, //跳过引导
+    AIFunSDKGuideTypeComplete, //完成引导
+} AIFunSDKGuideType;//引导事件
+
+typedef enum {
+    AIFunSDKMissionTypeStart, //关卡开始
+    AIFunSDKMissionTypeHeart, //心跳
+    AIFunSDKMissionTypeFail, //关卡失败
+    AIFunSDKMissionTypeComplete, //通关成功
+} AIFunSDKMissionType;//关卡事件类型
 
 
 #endif /* AIFunSDKDefines_h */
