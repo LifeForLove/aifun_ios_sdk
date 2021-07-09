@@ -31,8 +31,24 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy) NSString *missionId;
 @end
 
-
-
+@interface AIFunSDKGameRoleData : NSObject
+// 玩家等级 (非必填)
+@property (nonatomic, assign) NSInteger roleLevel;
+// 角色名称 (非必填)
+@property (nonatomic, copy) NSString *cpRoleName;
+// 渠道id (非必填)
+@property (nonatomic, copy) NSString *channelId;
+// 区服id (非必填)
+@property (nonatomic, copy) NSString *cpServerId;
+// 角色创建时间 (非必填)
+@property (nonatomic, copy) NSString *cpRoleCreateTime;
+// 角色id (非必填)
+@property (nonatomic, copy) NSString *cpRoleId;
+// 区服名称 (非必填)
+@property (nonatomic, copy) NSString *cpServerName;
+// 战斗力 (非必填)
+@property (nonatomic, assign) NSInteger comatEffectiveness;
+@end
 
 
 NS_ASSUME_NONNULL_END

@@ -8,7 +8,6 @@
 #import <Foundation/Foundation.h>
 #import "AIFunSDKDefines.h"
 #import "AIFunSDKPayInfo.h"
-#import "AIFunSDKGameRoleInfo.h"
 #import "AIFunSDKDataCollect.h"
 #import <UIKit/UIKit.h>
 extern NSString * _Nullable const AIFunSDKInitDidFinishedNotification;      //初始化成功
@@ -107,7 +106,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param orderInfo 订单信息
  @param roleInfo 角色信息
  */
-- (void)payOrderInfo:(AIFunSDKPayInfo *)orderInfo roleInfo:(AIFunSDKGameRoleInfo *)roleInfo;
+- (void)payOrderInfo:(AIFunSDKPayInfo *)orderInfo roleInfo:(AIFunSDKGameRoleData *)roleInfo;
 
 /**
  @brief 显示超时弹窗
@@ -137,6 +136,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 关卡数据统计
 + (BOOL)dataCollectWithMissionData:(AIFunSDKMissionData *)data;
+
+/// 区服角色信息数据统计
++ (BOOL)dataCollectWithGameRoleData:(AIFunSDKGameRoleData *)data;
 
 //***********************应用生命周期的回调*******************//
 //在应用对应的生命周期回调中调用

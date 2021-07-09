@@ -133,7 +133,7 @@
     payInfo.amount = 1;
     payInfo.goodsID = @"com.aifun.sdk.001";
     payInfo.productName = @"复活币";
-    AIFunSDKGameRoleInfo * roleInfo = [AIFunSDKGameRoleInfo new];
+    AIFunSDKGameRoleData * roleInfo = [AIFunSDKGameRoleData new];
     [[AIFunSDK defaultSDK]payOrderInfo:payInfo roleInfo:roleInfo];
 }
 
