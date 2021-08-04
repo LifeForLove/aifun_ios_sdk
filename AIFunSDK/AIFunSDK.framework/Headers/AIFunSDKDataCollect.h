@@ -36,8 +36,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger roleLevel;
 // 角色名称 (非必填)
 @property (nonatomic, copy) NSString *cpRoleName;
-// 渠道id (非必填)
-@property (nonatomic, copy) NSString *channelId;
 // 区服id (非必填)
 @property (nonatomic, copy) NSString *cpServerId;
 // 角色创建时间 (非必填)

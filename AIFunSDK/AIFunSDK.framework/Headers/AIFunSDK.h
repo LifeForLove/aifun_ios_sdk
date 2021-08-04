@@ -124,20 +124,33 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)beginUserTimeOutRecord;
 
 //***********************数据采集*******************//
-
-/// 首次进入
+/**
+ @brief 首次进入
+ @result YES表示是首次进入,sdk会进行数据统计; NO 则表示非首次进入或者其他错误
+ */
 + (BOOL)dataCollectFirstEnter;
 
-/// 首次进入停留时长
+/**
+ @brief 首次进入停留时长
+ @result YES表示是首次进入,sdk会进行数据统计; NO 则表示非首次进入或者其他错误
+ */
 + (BOOL)dataCollectFirstEnterWithStayTypeData:(AIFunSDKFirstData *)data;
 
-/// 引导页面数据统计
+/**
+ @brief 引导页面数据统计 (该数据会暂时写入本地,延时上传)
+ @result YES表示,sdk数据统计成功; NO 则表示统计失败
+ */
 + (BOOL)dataCollectWithGuideData:(AIFunSDKGuideData *)data;
 
-/// 关卡数据统计
+/**
+ @brief 关卡数据统计 (该数据会暂时写入本地,延时上传)
+ @result YES表示,sdk数据统计成功; NO 则表示统计失败
+ */
 + (BOOL)dataCollectWithMissionData:(AIFunSDKMissionData *)data;
 
-/// 区服角色信息数据统计
+/**
+ 区服角色信息数据统计
+ */
 + (BOOL)dataCollectWithGameRoleData:(AIFunSDKGameRoleData *)data;
 
 //***********************应用生命周期的回调*******************//
