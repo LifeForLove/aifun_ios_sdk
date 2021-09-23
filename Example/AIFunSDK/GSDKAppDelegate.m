@@ -8,7 +8,6 @@
 
 #import "GSDKAppDelegate.h"
 #import <AIFunSDK/AIFunSDK.h>
-#import <AFNetworking.h>
 @interface GSDKAppDelegate ()
 
 // 网络连接失败需要重新注册
@@ -39,35 +38,10 @@
             [[AIFunSDK defaultSDK]login];
         }
     } else {
-        if (![AFNetworkReachabilityManager sharedManager].isReachable) {
-            NSLog(@"网络连接失败");
-            self.needRegisterAppAgain = YES;
-        } else {
-            NSLog(@"注册失败：code = %d",errorCode);
-        }
     }
 }
 
 - (void)initConfig {
-    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
-    [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        // 当网络状态改变时调用
-        switch (status) {
-                case AFNetworkReachabilityStatusUnknown://未知网络
-                NSLog(@"未知网络");
-                break;
-                case AFNetworkReachabilityStatusNotReachable://没有网络
-                break;
-                case AFNetworkReachabilityStatusReachableViaWWAN://手机自带网络
-                [self registerAppAgain];
-                break;
-                case AFNetworkReachabilityStatusReachableViaWiFi://WIFI
-                [self registerAppAgain];
-                break;
-        }
-    }];
-    //开始监控
-    [manager startMonitoring];
 }
 
 

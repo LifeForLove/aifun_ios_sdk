@@ -94,6 +94,8 @@
     BOOL isLogin = [self checkLoginState];
     //判断是否超时
     BOOL isTimeOut = [self checkTimeOutState];
+    //判断是否已实名认证
+    
     if (isLogin && !isTimeOut) {
         //开始超时检测
         [self beginTimeOutRecord];
@@ -129,10 +131,12 @@
     hud.mode = MBProgressHUDModeIndeterminate;
     
     AIFunSDKPayInfo * payInfo = [AIFunSDKPayInfo new];
-    payInfo.count = 1;
-    payInfo.amount = 1;
-    payInfo.goodsID = @"com.aifun.sdk.001";
-    payInfo.productName = @"复活币";
+    payInfo.count = 1; // 购买数量
+    payInfo.amount = 0.1; // 购买金额
+    payInfo.goodsID = @"com.aifun.sdk.001"; // 商品id
+    payInfo.productName = @"复活币"; // 商品描述
+    payInfo.outTradeNo = @"12345"; // 商户订单号
+    payInfo.serverId = 0; // 区服id 不传或者传0代表没有区服id,示例值(1)
     AIFunSDKGameRoleData * roleInfo = [AIFunSDKGameRoleData new];
     [[AIFunSDK defaultSDK]payOrderInfo:payInfo roleInfo:roleInfo];
 }
@@ -152,6 +156,11 @@
 #pragma mark -  查询超时状态
 - (int)checkTimeOutState {
     return [AIFunSDK defaultSDK].isTimeOut;
+}
+
+#pragma mark -  查询是否已实名
+- (int)checkAuthName {
+    return [AIFunSDK defaultSDK].isAuth;
 }
 
 #pragma mark -  拉起登录页面

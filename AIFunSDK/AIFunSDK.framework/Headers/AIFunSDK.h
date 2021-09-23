@@ -50,6 +50,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign,readonly) BOOL isTimeOut;
 
 /**
+ 判断是否已实名
+ */
+@property (nonatomic,assign,readonly) BOOL isAuth;
+
+/**
  登录成功会返回token
  */
 @property (nonatomic,copy,readonly) NSString *token;

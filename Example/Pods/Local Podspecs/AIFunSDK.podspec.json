@@ -1,6 +1,6 @@
 {
   "name": "AIFunSDK",
-  "version": "0.1.4",
+  "version": "0.3.0",
   "summary": "A short description of AIFunSDK.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/LifeForLove/aifun_ios_sdk",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/LifeForLove/aifun_ios_sdk.git",
-    "tag": "0.1.4"
+    "tag": "0.3.0"
   },
   "platforms": {
     "ios": "9.0"
@@ -21,32 +21,8 @@
   "vendored_frameworks": "AIFunSDK/AIFunSDK.framework",
   "resources": "AIFunSDK/AIFunSDKResource.bundle",
   "dependencies": {
-    "Masonry": [
-      "~> 1.1.0"
-    ],
-    "SDWebImage": [
-      "~> 5.10.4"
-    ],
-    "AFNetworking": [
-      "~> 4.0.1"
-    ],
-    "MJExtension": [
-      "~> 3.2.4"
-    ],
-    "MJRefresh": [
-      "~> 3.5.0"
-    ],
-    "YYText": [
-      "~> 1.0.7"
-    ],
-    "ReactiveCocoa": [
-      "~> 2.5"
-    ],
     "QCloudCOSXML/Transfer": [
       "~> 5.8.1"
-    ],
-    "SAMKeychain": [
-      "~> 1.5.3"
     ]
   },
   "requires_arc": true,

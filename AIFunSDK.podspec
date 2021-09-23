@@ -37,15 +37,7 @@ Pod::Spec.new do |s|
   
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'Masonry', '~> 1.1.0'
-  s.dependency 'SDWebImage', '~> 5.10.4'
-  s.dependency 'AFNetworking','~> 4.0.1'
-  s.dependency 'MJExtension', '~> 3.2.4'
-  s.dependency 'MJRefresh', '~> 3.5.0'
-  s.dependency 'YYText', '~> 1.0.7'
-  s.dependency 'ReactiveCocoa','~> 2.5'
   s.dependency 'QCloudCOSXML/Transfer','~> 5.8.1' #腾讯cos
-  s.dependency 'SAMKeychain','~> 1.5.3'
   s.requires_arc = true
   
   s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-all_load' }
