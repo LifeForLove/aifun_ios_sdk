@@ -9,6 +9,7 @@
 #import "AIFunSDKDefines.h"
 #import "AIFunSDKPayInfo.h"
 #import "AIFunSDKDataCollect.h"
+#import "AIFunSDKReachability.h"
 #import <UIKit/UIKit.h>
 extern NSString * _Nullable const AIFunSDKInitDidFinishedNotification;      //初始化成功
 extern NSString * _Nullable const AIFunSDKLogOutResultNotification;        //退出登录通知
